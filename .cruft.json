@@ -1,0 +1,18 @@
+{
+  "template": "https://github.com/woltapp/wolt-python-package-cookiecutter",
+  "commit": "558929954802d05be04ca327c52114bd28b3c132",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "author_name": "Malcolm E. Davis",
+      "author_email": "malcolm3davis@gmail.com",
+      "github_username": "malcolm-3",
+      "project_name": "MEDUtils",
+      "project_slug": "medutils",
+      "package_name": "medutils",
+      "project_short_description": "Small packages and scripts I have found useful",
+      "_template": "https://github.com/woltapp/wolt-python-package-cookiecutter"
+    }
+  },
+  "directory": null
+}
