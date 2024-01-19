@@ -18,19 +18,24 @@ nav:
   - api_docs.md
   - changelog.md
 
+watch:
+  - src/medutils
+  
 markdown_extensions:
   - pymdownx.snippets:
       check_paths: true
 
 plugins:
-  - search:
+  - table-reader
+  - search
   - mkdocstrings:
       default_handler: python
       handlers:
         python:
-          rendering:
+	  paths: [src]
+	  optoins:
             show_signature_annotations: true
-            show_source: true
             show_submodules: true
-      watch:
-        - src/medutils
+
+extra_javascript:
+  - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js

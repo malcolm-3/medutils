@@ -17,8 +17,16 @@ jobs:
       - name: Gather outdated dependencies
         id: check_for_outdated_dependencies
         run: |
+          EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
           body=$(poetry show -o -n)
-          echo ::set-output name="body::$body"
+
+          EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
+          {
+            echo "body<<$EOF"
+            echo "$body"
+            echo "$EOF"
+          } >> "$GITHUB_OUTPUT"
+          echo "$body"
 
       - name: Format PR message
         if: ${{ steps.check_for_outdated_dependencies.outputs.body != 0 }}
@@ -32,10 +40,14 @@ jobs:
           $body
           EOF
           )
-          body="${body//'%'/'%25'}"
-          body="${body//$'\n'/'%0A'}"
-          body="${body//$'\r'/'%0D'}"
-          echo ::set-output name="body::$body"
+
+          EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
+          {
+            echo "body<<$EOF"
+            echo "$body"
+            echo "$EOF"
+          } >> "$GITHUB_OUTPUT"
+          echo "$body"
 
       - name: Update outdated packages
         if: ${{ steps.check_for_outdated_dependencies.outputs.body != 0 }}
@@ -44,9 +56,9 @@ jobs:
       # behaviour if PR already exists: https://github.com/marketplace/actions/create-pull-request#action-behaviour
       - name: Create Pull Request
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        if: ${{ steps.check_for_outdated_dependencies.outputs.body != 0 }}
-        uses: peter-evans/create-pull-request@v3
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        if: ${{ steps.check_for_outdated_dependencies.outputs.body != 0 && env.GITHUB_TOKEN != 0 }}
+        uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ env.GITHUB_TOKEN }}
           commit-message: >-

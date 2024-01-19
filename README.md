@@ -29,7 +29,7 @@ pip install medutils
 * Clone this repository
 * Requirements:
   * [Poetry](https://python-poetry.org/)
-  * Python 3.7+
+  * Python 3.9+
 * Create a virtual environment and install the dependencies
 
 ```sh
@@ -50,7 +50,7 @@ pytest
 
 ### Documentation
 
-The documentation is automatically generated from the content of the [docs directory](./docs) and from the docstrings
+The documentation is automatically generated from the content of the `docs` directory and from the docstrings
  of the public signatures of the source code. The documentation is updated and published as a [Github project page
  ](https://pages.github.com/) automatically as part each release.
 

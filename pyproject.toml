@@ -5,7 +5,7 @@ description = "Collection of Utility Scripts and Packages"
 authors = [
     "Malcolm E. Davis <mnjjunk@comcast.net>",
 ]
-license = "MIT"
+license = "BSD-3-Clause"
 readme = "README.md"
 
 documentation = "https://malcolm-3.github.io/medutils"
