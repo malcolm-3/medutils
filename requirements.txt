@@ -1,1 +1,2 @@
 click~=8.1.7
+types-setuptools~=69.0.0.20240115
