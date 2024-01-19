@@ -93,7 +93,6 @@ warn_redundant_casts = true
 warn_return_any = true
 check_untyped_defs = true
 show_error_codes = true
-install_types = true
 
 [tool.poetry.scripts]
 touch_latest = 'medutils.scripts.touch_latest:touch_latest'

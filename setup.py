@@ -7,6 +7,9 @@ setup(
     include_package_data=True,
     install_requires=[
         "Click",
+        "types-Pygments",
+        "types-colorama",
+        "types-setuptools",
     ],
     entry_points={
         "console_scripts": [
