@@ -20,22 +20,20 @@ nav:
 
 watch:
   - src/medutils
-  
+
 markdown_extensions:
   - pymdownx.snippets:
       check_paths: true
 
 plugins:
-  - table-reader
-  - search
+  - search:
   - mkdocstrings:
       default_handler: python
       handlers:
         python:
-	  paths: [src]
-	  optoins:
+          rendering:
             show_signature_annotations: true
+            show_source: true
             show_submodules: true
-
-extra_javascript:
-  - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
+      watch:
+        - src/crufttest
