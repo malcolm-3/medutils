@@ -1,5 +1,5 @@
 {
-  "template": "https://github.com/woltapp/wolt-python-package-cookiecutter",
+  "template": "https://github.com/collijk/python-package-cookiecutter",
   "commit": "558929954802d05be04ca327c52114bd28b3c132",
   "checkout": null,
   "context": {
@@ -11,7 +11,7 @@
       "project_slug": "medutils",
       "package_name": "medutils",
       "project_short_description": "Small packages and scripts I have found useful",
-      "_template": "https://github.com/woltapp/wolt-python-package-cookiecutter"
+      "_template": "https://github.com/collijk/python-package-cookiecutter"
     }
   },
   "directory": null
