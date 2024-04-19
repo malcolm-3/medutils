@@ -11,6 +11,7 @@ setup(
     entry_points={
         "console_scripts": [
             "touch_latest = medutils.scripts.touch_latest:cli",
+            "getcol = medutils.scripts.getcol:cli",
         ],
     },
 )
