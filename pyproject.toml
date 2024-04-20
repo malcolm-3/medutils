@@ -96,3 +96,4 @@ show_error_codes = true
 
 [tool.poetry.scripts]
 touch_latest = 'medutils.scripts.touch_latest:touch_latest'
+getcol = 'medutils.scripts.getcol:getcol'
