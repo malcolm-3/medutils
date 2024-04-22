@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ## [Unreleased]
 ### Added
 - merge
-  - my version of join(1) that doesn't require sorting 
+  - my version of join(1) that doesn't require sorting
 
 ## [0.2.1] - 2024-04-20
 ### Fixed
