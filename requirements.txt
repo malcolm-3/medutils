@@ -1,2 +1,2 @@
-click
-click-logging
+click~=8.1.7
+click-logging~=1.0.1
