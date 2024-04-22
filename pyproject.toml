@@ -94,6 +94,11 @@ warn_return_any = true
 check_untyped_defs = true
 show_error_codes = true
 
+[[tool.mypy.overrides]]
+module = "click_logging"
+ignore_missing_imports = true
+
 [tool.poetry.scripts]
 touch_latest = 'medutils.scripts.touch_latest:touch_latest'
 getcol = 'medutils.scripts.getcol:getcol'
+merge = 'medutils.scripts.merge:merge'

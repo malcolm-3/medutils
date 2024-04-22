@@ -1,4 +1,4 @@
-from setuptools import find_packages, setup  # type: ignore
+from setuptools import find_packages, setup
 
 setup(
     name="medutils",
@@ -12,6 +12,7 @@ setup(
         "console_scripts": [
             "touch_latest = medutils.scripts.touch_latest:cli",
             "getcol = medutils.scripts.getcol:cli",
+            "merge = medutils.scripts.merge:cli",
         ],
     },
 )
