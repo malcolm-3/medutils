@@ -252,6 +252,24 @@ colorama = {version = "*", markers = "platform_system == \"Windows\""}
 importlib-metadata = {version = "*", markers = "python_version < \"3.8\""}
 
 [[package]]
+name = "click-logging"
+version = "1.0.1"
+description = "Logging integration for Click"
+optional = false
+python-versions = "*"
+files = [
+    {file = "click-logging-1.0.1.tar.gz", hash = "sha256:1c3b2835ad4834df7c42e47ac7591866535af499dded3a84403f14411c5041a8"},
+    {file = "click_logging-1.0.1-py2.py3-none-any.whl", hash = "sha256:3ce04f9fa93120343f5d727108f2066b59bd9c5aac2d770a02f37c69186dbf23"},
+]
+
+[package.dependencies]
+click = "*"
+
+[package.extras]
+ci = ["coverage", "coveralls"]
+dev = ["commitizen", "flake8", "pre-commit", "pytest", "python-semantic-release"]
+
+[[package]]
 name = "colorama"
 version = "0.4.6"
 description = "Cross-platform colored terminal text."
@@ -1647,4 +1665,4 @@ testing = ["big-O", "flake8 (<5)", "jaraco.functools", "jaraco.itertools", "more
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.7.1, <4.0"
-content-hash = "e612543dfbc7b8355712f0d822ce45225f9c961a6f231b3cf112635956bd8178"
+content-hash = "9a2dcb65223dcc89549fe858e72cbd7b49ce8f43537ddc44daa2c7fd52fab9f4"
