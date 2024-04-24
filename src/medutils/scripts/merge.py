@@ -85,13 +85,12 @@ def merge(
     all_delimiter: str = ";",
     ignore: str | None = None,
 ) -> None:
-
     if output_delimiter is None:
         output_delimiter = delimiter
     key_column_list = key_column.split(",")
     ignore_set = set()
     if ignore is not None:
-        ignore_set.update(ignore.split(','))
+        ignore_set.update(ignore.split(","))
 
     data: Dict[str, Dict[str, str]] = {}
     output_key = None
