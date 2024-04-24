@@ -69,6 +69,12 @@ will be ignored.
     default="all",
     help="specifies how to handle multiple values for the same field with the same key",
 )
+@click.option(
+    "-I",
+    "--ignore",
+    type=str,
+    help="comma separated list of column identifiers to ignore",
+)
 @click.argument("files_to_read", nargs=-1, type=click.File("r"), required=False)
 def merge(
     files_to_read: Iterable[TextIO] = (),
@@ -77,10 +83,15 @@ def merge(
     output_delimiter: Optional[str] = None,
     keep: str = "all",
     all_delimiter: str = ";",
+    ignore: str | None = None,
 ) -> None:
+
     if output_delimiter is None:
         output_delimiter = delimiter
     key_column_list = key_column.split(",")
+    ignore_set = set()
+    if ignore is not None:
+        ignore_set.update(ignore.split(','))
 
     data: Dict[str, Dict[str, str]] = {}
     output_key = None
@@ -94,7 +105,7 @@ def merge(
         if reader.fieldnames is None:
             logger.warning('No fieldnames found in file "%s", skipping file.', fh.name)
             continue
-        this_data_field_list = list(reader.fieldnames)
+        this_data_field_list = [x for x in reader.fieldnames if x not in ignore_set]
         if key.isnumeric():
             key = this_data_field_list[int(key) - 1]
         elif key not in this_data_field_list:

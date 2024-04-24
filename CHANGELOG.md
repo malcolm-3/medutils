@@ -4,10 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- `--ignore` flag for `merge` command
+  - specifies columns that will be ignored and not included in the output
 
 ## [0.3.0] - 2024-04-22
 ### Added
-- merge
+- `merge`
   - my version of join(1) that doesn't require sorting
 
 ## [0.2.1] - 2024-04-20
@@ -16,7 +19,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [0.2.0] - 2024-04-20
 ### Added
-- getcol
+- `getcol`
   - script to extract columns from a delimited file
 
 ## [0.1.1] - 2024-01-19
@@ -25,7 +28,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [0.1.0] - 2024-01-19
 ### Added
-- touch_latest
+- `touch_latest`
   - script to touch (and create if necessary) a file
     with its modification date set to the latest date found in the specified dicrectories
 

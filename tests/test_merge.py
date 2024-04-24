@@ -56,6 +56,8 @@ Options:
                                first column of each file))
   --keep [first|last|all]      specifies how to handle multiple values for the
                                same field with the same key
+  -I, --ignore TEXT            comma separated list of column identifiers to
+                               ignore
   --help                       Show this message and exit.
 """
 
@@ -119,6 +121,14 @@ b\t1bf1\t1bf2\t2cf3
 c\t1cf1\t2bf2\t2bf3
 d\t\t1df2;2af2\t2af3
 e\t\t2ef2\t2ef3
+"""
+
+EXPECTED_ALL_IGNORE = """Key\tF2\tF3
+a\t1af2;2af2\t2af3
+b\t1bf2;2bf2\t2bf3
+c\t\t2cf3
+d\t1df2;2df2\t
+e\t2ef2\t2ef3
 """
 
 tmp_tree_files: list[FileEntry] = [
@@ -252,3 +262,12 @@ def test_merge(tmp_files: List[Path]) -> None:
     stdout = "\n".join(output_lines)
     assert stdout == EXPECTED_ALL
     assert stderr_line.startswith("warning: No fieldnames found in file")
+
+    logger.debug("check with key, ignore")
+    # noinspection PyTypeChecker
+    result = runner.invoke(
+        merge,
+        ["-k", "Key", "-I", "F1,AltKey", file1, file2],
+    )
+    assert result.exit_code == 0
+    assert result.output == EXPECTED_ALL_IGNORE
