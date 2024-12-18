@@ -40,25 +40,26 @@ EXPECTED_HELP = """Usage: merge [OPTIONS] [FILES_TO_READ]...
   will be ignored.
 
 Options:
-  -v, --verbosity LVL          Either CRITICAL, ERROR, WARNING, INFO or DEBUG.
-  -d, --delimiter TEXT         column delimiter (default=TAB)
-  -o, --output-delimiter TEXT  output column delimiter (default=input delimiter)
-  --all-delimiter TEXT         when keep=="all" this will be the delimiter
-                               between entries where there are multiple
-                               (default=";")
-  -k, --key-column TEXT        comma separated list of key column identifiers.
-                               each new file will use the next identifier. the
-                               last identifier will be used for all remaining
-                               files, so just use "-k identifier" if the
-                               identifier is the same for all files. The
-                               identifier can either be the header string or the
-                               one-based column index. (default=1 (i.e. the
-                               first column of each file))
-  --keep [first|last|all]      specifies how to handle multiple values for the
-                               same field with the same key
-  -I, --ignore TEXT            comma separated list of column identifiers to
-                               ignore
-  --help                       Show this message and exit.
+  -v, --verbosity LVL           Either CRITICAL, ERROR, WARNING, INFO or DEBUG.
+  -d, --delimiter TEXT          column delimiter (default=TAB)
+  -o, --output-delimiter TEXT   output column delimiter (default=input
+                                delimiter)
+  --all-delimiter TEXT          when keep=="all" this will be the delimiter
+                                between entries where there are multiple
+                                (default=";")
+  -k, --key-column TEXT         comma separated list of key column identifiers.
+                                each new file will use the next identifier. the
+                                last identifier will be used for all remaining
+                                files, so just use "-k identifier" if the
+                                identifier is the same for all files. The
+                                identifier can either be the header string or
+                                the one-based column index. (default=1 (i.e. the
+                                first column of each file))
+  --keep [first|last|uniq|all]  specifies how to handle multiple values for the
+                                same field with the same key
+  -I, --ignore TEXT             comma separated list of column identifiers to
+                                ignore
+  --help                        Show this message and exit.
 """
 
 FILE1 = """Key\tF1\tF2
@@ -78,7 +79,8 @@ e\te\t2ef3\t2ef2
 
 FILE3 = """X\tY\tZ
 a\t3ay\t3az
-b\t3by\t3bz"""
+b\t3by\t3bz
+"""
 
 FILE4 = """AltKey\tKey\tF3\tF2
 d\ta\t2af3\t2af2
@@ -87,6 +89,11 @@ c\tb\t2bf3\t2bf2
 b\tc\t2cf3\t
 a\td\t\t2df2
 e\te\t2ef3\t2ef2
+"""
+
+FILE5 = """X\tY\tZ
+a\t3ay\t3az
+b\t3by\t5bz
 """
 
 EXPECTED_FIRST = """Key\tF1\tF2\tAltKey\tF3
@@ -131,6 +138,18 @@ d\t1df2;2df2\t
 e\t2ef2\t2ef3
 """
 
+EXPECTED_UNIQ = """X\tY\tZ
+a\t3ay\t3az
+b\t3by\t3bz;5bz
+"""
+
+EXPECTED_2FILE3_ALL = """X\tY\tZ
+a\t3ay;3ay\t3az;3az
+b\t3by;3by\t3bz;3bz
+"""
+
+EXPECTED_2FILE3_UNIQ = FILE3
+
 tmp_tree_files: list[FileEntry] = [
     {"name": "file.1990.01.01", "mtime": int(datetime(1990, 1, 1).timestamp())},
     {"name": "file.2000.03.03", "mtime": int(datetime(2000, 3, 3).timestamp())},
@@ -155,7 +174,10 @@ def tmp_files(tmp_path: Path) -> List[Path]:
     f4 = tmp_path.joinpath("file4")
     with open(f4, "w") as fh:
         fh.write(FILE4)
-    return [f1, f2, f3, f4]
+    f5 = tmp_path.joinpath("file5")
+    with open(f5, "w") as fh:
+        fh.write(FILE5)
+    return [f1, f2, f3, f4, f5]
 
 
 def test_merge(tmp_files: List[Path]) -> None:
@@ -164,6 +186,7 @@ def test_merge(tmp_files: List[Path]) -> None:
     file2 = str(tmp_files[1])
     file3 = str(tmp_files[2])
     file4 = str(tmp_files[3])
+    file5 = str(tmp_files[4])
 
     logger.debug("check help output")
     # noinspection PyTypeChecker
@@ -271,3 +294,30 @@ def test_merge(tmp_files: List[Path]) -> None:
     )
     assert result.exit_code == 0
     assert result.output == EXPECTED_ALL_IGNORE
+
+    logger.debug("check keep all with duplicate file")
+    # noinspection PyTypeChecker
+    result = runner.invoke(
+        merge,
+        ["-k", "X", "--keep", "all", file3, file3],
+    )
+    assert result.exit_code == 0
+    assert result.output == EXPECTED_2FILE3_ALL
+
+    logger.debug("check keep uniq with duplicate file")
+    # noinspection PyTypeChecker
+    result = runner.invoke(
+        merge,
+        ["-k", "X", "--keep", "uniq", file3, file3],
+    )
+    assert result.exit_code == 0
+    assert result.output == EXPECTED_2FILE3_UNIQ
+
+    logger.debug("check keep uniq")
+    # noinspection PyTypeChecker
+    result = runner.invoke(
+        merge,
+        ["-k", "X", "--keep", "uniq", file3, file5],
+    )
+    assert result.exit_code == 0
+    assert result.output == EXPECTED_UNIQ

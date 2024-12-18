@@ -65,7 +65,7 @@ will be ignored.
 )
 @click.option(
     "--keep",
-    type=click.Choice(["first", "last", "all"], case_sensitive=False),
+    type=click.Choice(["first", "last", "uniq", "all"], case_sensitive=False),
     default="all",
     help="specifies how to handle multiple values for the same field with the same key",
 )
@@ -184,9 +184,12 @@ def _process_row(
         elif data_field not in entry or keep == "last":
             entry[data_field] = data_value
         elif keep == "all":
-            if len(data_value) > 0:
-                entry[data_field] += all_delimiter
+            entry[data_field] += all_delimiter
             entry[data_field] += data_value
+        elif keep == "uniq":
+            if data_value not in entry[data_field].split(all_delimiter):
+                entry[data_field] += all_delimiter
+                entry[data_field] += data_value
         else:  # keep == 'first' so ignore subsequent values
             pass
 
