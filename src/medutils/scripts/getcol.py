@@ -7,6 +7,8 @@ from typing import List, Optional, Tuple
 
 import click
 
+from .. import __version__, __version_message__
+
 
 @click.command(
     help="""
@@ -27,6 +29,7 @@ If no file_to_read is specified, then input is read from stdin.
     type=str,
     help="output column delimiter (default=input delimiter)",
 )
+@click.version_option(__version__, message=__version_message__)
 @click.argument("column_spec", type=str, required=True)
 @click.argument("file_to_read", type=click.Path(exists=True), required=False)
 def getcol(

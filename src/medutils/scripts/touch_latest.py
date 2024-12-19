@@ -7,6 +7,8 @@ from pathlib import Path
 
 import click
 
+from .. import __version__, __version_message__
+
 # be sure to update docstring if you change DEFAULT_IGNORE_GLOBS
 DEFAULT_IGNORE_GLOBS = ["*~", "*.pyc", "#*", ".*", "*.OLD", "OLD"]
 
@@ -31,6 +33,7 @@ DEFAULT_IGNORE_GLOBS = ["*~", "*.pyc", "#*", ".*", "*.OLD", "OLD"]
 @click.option(
     "-n", "--no-default-ignore", is_flag=True, help="do not use default ignore globs"
 )
+@click.version_option(__version__, message=__version_message__)
 @click.argument("touch_file", type=str)
 @click.argument("paths_to_check", nargs=-1, type=click.Path(exists=True), required=True)
 def touch_latest(
