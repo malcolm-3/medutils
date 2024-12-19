@@ -14,7 +14,9 @@ runs:
       with:
         python-version: ${{inputs.python-version}}
     - name: Install poetry
-      run: python -m pip install poetry
+      run: |
+        python -m pip install poetry
+        poetry self add poetry-bumpversion
       shell: bash
     - name: Create virtual environment
       run: poetry install

@@ -99,6 +99,10 @@ show_error_codes = true
 module = "click_logging"
 ignore_missing_imports = true
 
+[tool.poetry_bumpversion.file."src/medutils/__init__.py"]
+search = '__version__ = "{current_version}"'
+replace = '__version__ = "{new_version}"'
+
 [tool.poetry.scripts]
 touch_latest = 'medutils.scripts.touch_latest:touch_latest'
 getcol = 'medutils.scripts.getcol:getcol'
