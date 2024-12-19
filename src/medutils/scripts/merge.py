@@ -8,6 +8,8 @@ from typing import Dict, Iterable, List, Optional, TextIO
 import click
 import click_logging
 
+from .. import __version__
+
 logger = logging.getLogger(__name__)
 click_logging.basic_config(logger)
 
@@ -75,6 +77,7 @@ will be ignored.
     type=str,
     help="comma separated list of column identifiers to ignore",
 )
+@click.version_option(__version__)
 @click.argument("files_to_read", nargs=-1, type=click.File("r"), required=False)
 def merge(
     files_to_read: Iterable[TextIO] = (),

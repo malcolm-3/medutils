@@ -59,6 +59,7 @@ Options:
                                 same field with the same key
   -I, --ignore TEXT             comma separated list of column identifiers to
                                 ignore
+  --version                     Show the version and exit.
   --help                        Show this message and exit.
 """
 
