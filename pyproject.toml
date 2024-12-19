@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "medutils"
-version = "0.4.0"
+version = "0.4.1"
 description = "Collection of Utility Scripts and Packages"
 authors = [
     "Malcolm E. Davis <mnjjunk@comcast.net>",
