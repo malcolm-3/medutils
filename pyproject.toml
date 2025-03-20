@@ -33,7 +33,7 @@ packages = [
 python = ">=3.8, <4.0"
 click-logging = "^1.0.1"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
 autoflake = "*"
 black = {version = ">=24.3.0"}
 flake8 = "*"
