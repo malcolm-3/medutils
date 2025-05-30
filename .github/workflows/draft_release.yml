@@ -27,12 +27,7 @@ jobs:
           token: ${{ env.GITHUB_TOKEN }}
 
       - uses: ./.github/actions/python-poetry-env
-      - name: Generate a token
-        id: generate-token
-        uses: actions/create-github-app-token@v1
-        with:
-          app-id: ${{ vars.ACTION_APP_ID }}
-          private-key: ${{ secrets.ACTION_APP_PRIVATE_KEY }}
+
       - name: Update version
         id: updated_version
         shell: bash
