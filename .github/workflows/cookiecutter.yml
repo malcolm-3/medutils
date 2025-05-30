@@ -8,7 +8,19 @@ jobs:
   auto-update-project:
     runs-on: ubuntu-latest
     steps:
+      - name: Generate a token
+        id: generate-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ vars.ACTION_APP_ID }}
+          private-key: ${{ secrets.ACTION_APP_PRIVATE_KEY }}
+
       - uses: actions/checkout@v4
+        env:
+          GITHUB_TOKEN: ${{ steps.generate-token.outputs.token }}
+        with:
+          token: ${{ env.GITHUB_TOKEN }}
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -74,7 +86,7 @@ jobs:
       - name: Create Pull Request
         env:
           # a PAT is required to be able to update workflows
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ steps.generate-token.outputs.token }}
         if: ${{ steps.changes.outputs.changed > 0 && env.GITHUB_TOKEN != 0 }}
         uses: peter-evans/create-pull-request@v5
         with:
