@@ -1,3 +1,3 @@
 # API documentation
 
-:::medutils
+:::malcolm3utils

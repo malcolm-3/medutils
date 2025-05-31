@@ -6,7 +6,7 @@ from typing import List, TypedDict
 import pytest
 from click.testing import CliRunner
 
-from medutils.scripts.merge import merge
+from malcolm3utils.scripts.merge import merge
 
 logger = logging.getLogger(__name__)
 

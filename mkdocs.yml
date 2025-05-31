@@ -1,5 +1,5 @@
-site_name: "MEDUtils"
-repo_url: https://github.com/malcolm-3/medutils
+site_name: "Malcolm3Utils"
+repo_url: https://github.com/malcolm-3/malcolm3utils
 
 theme:
   name: material
@@ -19,7 +19,7 @@ nav:
   - changelog.md
 
 watch:
-  - src/medutils
+  - src/malcolm3utils
 
 markdown_extensions:
   - pymdownx.snippets:

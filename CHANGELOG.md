@@ -23,7 +23,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ## [0.4.3] - 2024-12-19
 ### Fixed
 - updates to workflow to get automatic version updating to work
-  - `src/medutils/__init__.py` was being updated, but not committed.
+  - `src/malcolm3utils/__init__.py` was being updated, but not committed.
 
 ## [0.4.2] - 2024-12-19
 ### Fixed
@@ -68,17 +68,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
   - script to touch (and create if necessary) a file
     with its modification date set to the latest date found in the specified dicrectories
 
-[Unreleased]: https://github.com/malcolm-3/medutils/compare/0.4.6...master
-[0.4.6]: https://github.com/malcolm-3/medutils/compare/0.4.5...0.4.6
-[0.4.5]: https://github.com/malcolm-3/medutils/compare/0.4.4...0.4.5
-[0.4.4]: https://github.com/malcolm-3/medutils/compare/0.4.3...0.4.4
-[0.4.3]: https://github.com/malcolm-3/medutils/compare/0.4.2...0.4.3
-[0.4.2]: https://github.com/malcolm-3/medutils/compare/0.4.1...0.4.2
-[0.4.1]: https://github.com/malcolm-3/medutils/compare/0.4.0...0.4.1
-[0.4.0]: https://github.com/malcolm-3/medutils/compare/0.3.1...0.4.0
-[0.3.1]: https://github.com/malcolm-3/medutils/compare/0.3.0...0.3.1
-[0.3.0]: https://github.com/malcolm-3/medutils/compare/0.2.1...0.3.0
-[0.2.1]: https://github.com/malcolm-3/medutils/compare/0.2.0...0.2.1
-[0.2.0]: https://github.com/malcolm-3/medutils/compare/0.1.1...0.2.0
-[0.1.1]: https://github.com/malcolm-3/medutils/compare/0.1.0...0.1.1
-[0.1.0]: https://github.com/malcolm-3/medutils/tree/0.1.0
+[Unreleased]: https://github.com/malcolm-3/malcolm3utils/compare/0.4.6...master
+[0.4.6]: https://github.com/malcolm-3/malcolm3utils/compare/0.4.5...0.4.6
+[0.4.5]: https://github.com/malcolm-3/malcolm3utils/compare/0.4.4...0.4.5
+[0.4.4]: https://github.com/malcolm-3/malcolm3utils/compare/0.4.3...0.4.4
+[0.4.3]: https://github.com/malcolm-3/malcolm3utils/compare/0.4.2...0.4.3
+[0.4.2]: https://github.com/malcolm-3/malcolm3utils/compare/0.4.1...0.4.2
+[0.4.1]: https://github.com/malcolm-3/malcolm3utils/compare/0.4.0...0.4.1
+[0.4.0]: https://github.com/malcolm-3/malcolm3utils/compare/0.3.1...0.4.0
+[0.3.1]: https://github.com/malcolm-3/malcolm3utils/compare/0.3.0...0.3.1
+[0.3.0]: https://github.com/malcolm-3/malcolm3utils/compare/0.2.1...0.3.0
+[0.2.1]: https://github.com/malcolm-3/malcolm3utils/compare/0.2.0...0.2.1
+[0.2.0]: https://github.com/malcolm-3/malcolm3utils/compare/0.1.1...0.2.0
+[0.1.1]: https://github.com/malcolm-3/malcolm3utils/compare/0.1.0...0.1.1
+[0.1.0]: https://github.com/malcolm-3/malcolm3utils/tree/0.1.0

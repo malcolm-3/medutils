@@ -4,7 +4,7 @@ from pathlib import Path
 import pytest
 from click.testing import CliRunner
 
-from medutils.scripts.getcol import getcol
+from malcolm3utils.scripts.getcol import getcol
 
 TEST_INPUT = """A\tB\tC\tD
 1\t2\t3\t4

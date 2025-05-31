@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "medutils"
+name = "malcolm3utils"
 version = "0.4.6"
 description = "Collection of Utility Scripts and Packages"
 authors = [
@@ -8,9 +8,9 @@ authors = [
 license = "BSD-3-Clause"
 readme = "README.md"
 
-documentation = "https://malcolm-3.github.io/medutils"
-homepage = "https://malcolm-3.github.io/medutils"
-repository = "https://github.com/malcolm-3/medutils"
+documentation = "https://malcolm-3.github.io/malcolm3utils"
+homepage = "https://malcolm-3.github.io/malcolm3utils"
+repository = "https://github.com/malcolm-3/malcolm3utils"
 
 classifiers = [
   "Development Status :: 4 - Beta",
@@ -26,7 +26,7 @@ classifiers = [
 ]
 
 packages = [
-    { include = "medutils", from = "src" }
+    { include = "malcolm3utils", from = "src" }
 ]
 
 [tool.poetry.dependencies]
@@ -72,7 +72,7 @@ include = '\.pyi?$'
 
 [tool.pytest.ini_options]
 addopts = """\
-    --cov medutils \
+    --cov malcolm3utils \
     --cov tests \
     --cov-report term-missing \
     --no-cov-on-fail \
@@ -100,11 +100,11 @@ show_error_codes = true
 module = "click_logging"
 ignore_missing_imports = true
 
-[tool.poetry_bumpversion.file."src/medutils/__init__.py"]
+[tool.poetry_bumpversion.file."src/malcolm3utils/__init__.py"]
 search = '__version__ = "{current_version}"'
 replace = '__version__ = "{new_version}"'
 
 [tool.poetry.scripts]
-touch_latest = 'medutils.scripts.touch_latest:touch_latest'
-getcol = 'medutils.scripts.getcol:getcol'
-merge = 'medutils.scripts.merge:merge'
+touch_latest = 'malcolm3utils.scripts.touch_latest:touch_latest'
+getcol = 'malcolm3utils.scripts.getcol:getcol'
+merge = 'malcolm3utils.scripts.merge:merge'

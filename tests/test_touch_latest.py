@@ -6,7 +6,7 @@ from typing import TypedDict
 import pytest
 from click.testing import CliRunner
 
-from medutils.scripts.touch_latest import touch_latest
+from malcolm3utils.scripts.touch_latest import touch_latest
 
 now = int(datetime.now().timestamp())
 
