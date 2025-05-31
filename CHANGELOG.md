@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [0.5.5] - 2025-05-31
 ### Fixed
 - project classifiers
 
@@ -90,7 +92,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
   - script to touch (and create if necessary) a file
     with its modification date set to the latest date found in the specified dicrectories
 
-[Unreleased]: https://github.com/malcolm-3/malcolm3utils/compare/0.5.4...master
+[Unreleased]: https://github.com/malcolm-3/malcolm3utils/compare/0.5.5...master
+[0.5.5]: https://github.com/malcolm-3/malcolm3utils/compare/0.5.4...0.5.5
 [0.5.4]: https://github.com/malcolm-3/malcolm3utils/compare/0.5.3...0.5.4
 [0.5.3]: https://github.com/malcolm-3/malcolm3utils/compare/0.5.2...0.5.3
 [0.5.2]: https://github.com/malcolm-3/malcolm3utils/compare/0.5.1...0.5.2
