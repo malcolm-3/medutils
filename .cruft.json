@@ -1,6 +1,6 @@
 {
   "template": "https://github.com/malcolm-3/malcolm-3-python-package-cookiecutter",
-  "commit": "275b55f7f8c9dbb9c9978aa398e92e60128e845a",
+  "commit": "3ac45da2bde55d7d1f691a8d4984f59e8cd2b3af",
   "checkout": null,
   "context": {
     "cookiecutter": {
