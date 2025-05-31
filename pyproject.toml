@@ -46,6 +46,7 @@ flake8-logging-format = "*"
 isort = "*"
 mkdocstrings = {version = ">=0.18", extras = ["python"]}
 mkdocs-material = "*"
+mkdocs-click = "*"
 mypy = "*"
 pep8-naming = "*"
 pre-commit = "*"

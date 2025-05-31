@@ -15,15 +15,16 @@ theme:
 
 nav:
   - Introduction: 'index.md'
-  - api_docs.md
+  - cli_docs.md
   - changelog.md
 
 watch:
-  - src/malcolm3utils
+  - src/
 
 markdown_extensions:
   - pymdownx.snippets:
       check_paths: true
+  - mkdocs-click
 
 plugins:
   - search:
@@ -31,9 +32,9 @@ plugins:
       default_handler: python
       handlers:
         python:
-          rendering:
+          options:
             show_signature_annotations: true
             show_source: true
             show_submodules: true
       watch:
-        - src/crufttest
+        - src/
