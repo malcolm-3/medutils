@@ -24,6 +24,17 @@ Collection of Utility Scripts and Packages
 pip install malcolm3utils
 ```
 
+## Usage
+
+This package provides the following command line tools
+
+- ``touch_latest``
+  - This touches a marker file with the timestamp of the most recently changed file under the specified directories
+- ``getcol``
+  - A tool for extracting columns of data by column header name or column id
+- ``merge``
+  - A version of the ``join`` command that doesn't require pre-sorting
+
 ## Development
 
 * Clone this repository
