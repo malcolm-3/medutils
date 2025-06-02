@@ -7,6 +7,7 @@ import pytest
 from click.testing import CliRunner
 
 from malcolm3utils.scripts.merge import merge
+
 from .utils import os_independent_text_equals
 
 logger = logging.getLogger(__name__)

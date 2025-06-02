@@ -5,11 +5,13 @@ import pytest
 from click.testing import CliRunner
 
 from malcolm3utils.scripts.getcol import getcol
+
 from .utils import os_independent_text_equals
 
 TEST_INPUT = """A\tB\tC\tD
 1\t2\t3\t4
 """
+
 
 @pytest.fixture
 def tmp_file(tmp_path: Path) -> Path:
