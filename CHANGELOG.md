@@ -5,7 +5,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 ### Fixed
-- tests to work on Windows (should fix MacOS also, but not tested)
+- updated tests to work on Windows (should fix MacOS also, but not tested)
 
 ## [0.5.5] - 2025-05-31
 ### Fixed
